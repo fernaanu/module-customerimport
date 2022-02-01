@@ -11,7 +11,7 @@
     ],
     "require": {
         "php": "~7.3.27||~7.4.26",
-        "wt/module-customer-import": "dev-master"
+        "wt/module-customer-import": "dev-main"
     },
     "license": "OSL-3.0",
     "authors": [
