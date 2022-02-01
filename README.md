@@ -1,10 +1,10 @@
 # WT1_CustomerImport
 
-WT1_CustomerImport module used to import customers from a sample CSV or JSON.
+WT1_CustomerImport module is used to import customers from a sample CSV or JSON.
 
 ## Installation
 
-In magento root directory, execute:
+In Magento root directory, execute:
 ```bash
 bin/magento module:enable WT1_CustomerImport
 bin/magento s:up
