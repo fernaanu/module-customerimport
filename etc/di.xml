@@ -3,7 +3,7 @@
 /**
  * Wunderman Thompson Ltd.
  *
- * @category    WT
+ * @category    WT1
  * @package     CustomerImport
  * @author      Anuradha Fernando <anuradhafernando81@gmail.com>
  * @copyright   Copyright (c) 2022 Wunderman Thompson Ltd. (https://www.wundermanthompson.com)
@@ -14,7 +14,7 @@
     <type name="Magento\Framework\Console\CommandList">
         <arguments>
             <argument name="commands" xsi:type="array">
-                <item name="CustomerImport" xsi:type="object">WT\CustomerImport\Console\Command\CustomerImport</item>
+                <item name="CustomerImport" xsi:type="object">WT1\CustomerImport\Console\Command\CustomerImport</item>
             </argument>
         </arguments>
     </type>

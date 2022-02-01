@@ -2,12 +2,12 @@
 /**
  * Wunderman Thompson Ltd.
  *
- * @category    WT
+ * @category    WT1
  * @package     CustomerImport
  * @author      Anuradha Fernando <anuradhafernando81@gmail.com>
  * @copyright   Copyright (c) 2022 Wunderman Thompson Ltd. (https://www.wundermanthompson.com)
  */
-namespace WT\CustomerImport\Console\Command;
+namespace WT1\CustomerImport\Console\Command;
 
 use Magento\Framework\App\Filesystem\DirectoryList;
 use Magento\Framework\Filesystem;
@@ -15,7 +15,7 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use WT\CustomerImport\Model\Customer;
+use WT1\CustomerImport\Model\ImportCustomer;
 
 /**
  * Class Customer Import by CSV
@@ -30,20 +30,20 @@ class CustomerImport extends Command
     /**
      * @var Customer
      */
-    private $customer;
+    private $importCustomer;
 
     /**
      * Construct
      * @param Filesystem $filesystem
-     * @param Customer $customer
+     * @param ImportCustomer $importCustomer
      */
     public function __construct(
         Filesystem $filesystem,
-        Customer $customer
+        ImportCustomer $importCustomer
     )
     {
         $this->filesystem = $filesystem;
-        $this->customer = $customer;
+        $this->importCustomer = $importCustomer;
         parent::__construct();
     }
 
@@ -55,7 +55,7 @@ class CustomerImport extends Command
     protected function configure()
     {
         $this->setName('wt:customer:import');
-        $this->setDescription('Customer data import from the CSV, JSON AND XML');
+        $this->setDescription('Customer data import from the CSV and JSON');
 
         //Set arguments - passing parameters
         $this->addArgument('profile', InputArgument::REQUIRED, __('Profile Name'));
@@ -69,25 +69,16 @@ class CustomerImport extends Command
      *
      * @param InputInterface $input
      * @param OutputInterface $output
-     * @return int|void
-     * @throws \Magento\Framework\Exception\FileSystemException
+     * @return void
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $profile = $input->getArgument('profile');
         $source = $input->getArgument('source');
 
-        $mediaDir = $this->filesystem->getDirectoryWrite(DirectoryList::MEDIA);
-        $sourcePath = $mediaDir->getAbsolutePath() . 'import/' . $source;
-
-        $saveData = $this->customer->saveCustomerData($profile, $sourcePath, $output);
-
-        if ($saveData) {
-            $output->writeln(
-                '<info>Customer import completed</info>',
-                OutputInterface::OUTPUT_NORMAL
-            );
+        $customerImport = $this->importCustomer->saveCustomerData($profile, $source, $output);
+        if ($customerImport) {
+            $output->writeln("Customer data import completed. Please check logs for more details.");
         }
-
     }
 }
