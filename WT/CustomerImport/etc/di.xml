@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Wunderman Thompson Ltd.
+ *
+ * @category    WT
+ * @package     CustomerImport
+ * @author      Anuradha Fernando <anuradhafernando81@gmail.com>
+ * @copyright   Copyright (c) 2022 Wunderman Thompson Ltd. (https://www.wundermanthompson.com)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="CustomerImport" xsi:type="object">WT\CustomerImport\Console\Command\CustomerImport</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

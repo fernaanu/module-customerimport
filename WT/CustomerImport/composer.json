@@ -1,0 +1,33 @@
+{
+    "name": "wt/module-customer-import",
+    "type": "magento2-module",
+    "description": "Customer data import from the CSV and the JSON",
+    "keywords": ["magento2", "customer", "import"],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://repo.magento.com/"
+        }
+    ],
+    "require": {
+        "php": "~7.3.27||~7.4.26",
+        "wt/module-customer-import": "dev-master"
+    },
+    "license": "OSL-3.0",
+    "authors": [
+        {
+            "name": "Anuradha Fernando",
+            "email": "anuradhafernando81@gmail.com"
+        }
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "WT\\CustomertImport\\" : ""
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
