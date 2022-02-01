@@ -1,5 +1,5 @@
 {
-    "name": "wt/module-customer-import",
+    "name": "wundermanthompson/module-customer-import",
     "type": "magento2-module",
     "description": "Customer data import from the CSV and the JSON",
     "keywords": ["magento2", "customer", "import"],
@@ -11,7 +11,7 @@
     ],
     "require": {
         "php": "~7.3.27||~7.4.26",
-        "wt/module-customer-import": "dev-main"
+        "wundermanthompson/module-customer-import": "dev-main"
     },
     "license": "OSL-3.0",
     "authors": [
