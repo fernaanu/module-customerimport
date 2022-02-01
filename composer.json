@@ -1,5 +1,5 @@
 {
-    "name": "wt1/module-customer-import",
+    "name": "wt1/module-customerimport",
     "description": "Customer import from CSV and JSON",
     "type": "magento2-module",
     "version": "1.1.1",
